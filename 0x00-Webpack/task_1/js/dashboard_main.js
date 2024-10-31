@@ -1,7 +1,6 @@
 import $ from 'jquery';
 import _ from 'lodash';
 
-$(document).ready(function() {
     const elements = [
         '<p>Holberton Dashboard</p>',
         '<p>Dashboard data for the students</p>',
@@ -20,4 +19,3 @@ $(document).ready(function() {
     };
 
     $('button').on('click',_.debounce(updateCounter, 200));
-});
