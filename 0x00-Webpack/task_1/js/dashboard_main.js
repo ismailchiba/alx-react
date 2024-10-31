@@ -15,7 +15,7 @@ import _ from 'lodash';
 
     function updateCounter() {
         count++;
-        $('#count').text(`${count} clicks on the button`);
+        $('#count').html(`${count} clicks on the button`);
     };
 
     $('button').on('click',_.debounce(updateCounter, 200));
