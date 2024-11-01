@@ -85,6 +85,3 @@ This task is part of the ALX React project, focusing on setting up a development
 - GitHub: [ismailchiba](https://github.com/ismailchiba)
 ## License
 This project is licensed under the MIT License.
-
-## License
-This project is licensed under the MIT License.
