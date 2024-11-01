@@ -31,14 +31,6 @@ module.exports = {
                 progressive: true,
                 quality: 65,
               },
-              optipng: {
-                enabled: true,
-                optimizationLevel: 5,
-              },
-              pngquant: {
-                quality: [0.65, 0.9],
-                speed: 4,
-              },
             },
           },
         ],
