@@ -1,0 +1,15 @@
+.Notifications {
+    border: 2px dotted red;
+    padding: 10px;
+    font-weight: bold;
+}
+.Notifications p {
+    font-size: 1.5rem;
+}
+
+li[data="urgent"] {
+    color: red;
+}
+li[data="default"] {
+    color: blue;
+}
