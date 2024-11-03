@@ -1,0 +1,6 @@
+
+node_modules/
+**/main.js
+**/main.js.LICENSE.txt
+**/package-lock.json
+**/bundle.js.LICENSE.txt
