@@ -38,7 +38,7 @@
     "@zarconontol/enzyme-adapter-react-18": "^0.7.3",
     "inline-source-map": "^0.6.2",
     "prop-types": "^15.8.1",
-    "react": "^18.2.0",
+    "react": "^18.3.1",
     "react-dom": "^18.2.0"
   },
   "jest": {
@@ -51,6 +51,11 @@
     },
     "transform": {
       "\\.js$": "<rootDir>/node_modules/babel-jest"
+    }
+  },
+  "overrides": {
+    "enzyme": {
+      "cheerio": "1.0.0-rc.10"
     }
   }
 }

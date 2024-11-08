@@ -11,6 +11,10 @@ function NotificationItem({ type, html, value }) {
   );
 }
 
+NotificationItem.defaultProps = {
+  type: "default",
+};
+
 NotificationItem.propTypes = {
   type: PropTypes.string.isRequired,
   value: PropTypes.string,
@@ -19,8 +23,5 @@ NotificationItem.propTypes = {
   }),
 };
 
-NotificationItem.defaultProps = {
-  type: "default",
-};
 
 export default NotificationItem;
