@@ -9,6 +9,7 @@ import Footer from "../Footer/Footer";
 import Notifications from "../Notifications/Notifications";
 import CourseList from "../CourseList/CourseList";
 import { shallow, mount } from "enzyme";
+global.alert = jest.fn();
 
 describe("App tests", () => {
   it("renders without crashing", () => {
