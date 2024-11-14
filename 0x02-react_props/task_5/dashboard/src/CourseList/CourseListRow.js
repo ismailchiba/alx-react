@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 
-const CourseListRow = ({ isHeader , textFirstCell, textSecondCell }) => {
+const CourseListRow = ({ isHeader =false , textFirstCell, textSecondCell = null}) => {
     return (
         <tr>
             {isHeader ? (
@@ -28,9 +28,5 @@ CourseListRow.propTypes = {
     textSecondCell: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   };
   
-  CourseListRow.defaultProps = {
-    isHeader: false,
-    textSecondCell: null,
-  };
 
 export default CourseListRow;

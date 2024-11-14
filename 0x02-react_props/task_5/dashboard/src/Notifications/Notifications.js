@@ -7,8 +7,8 @@ import PropTypes from "prop-types";
 
 const NotificationItemShape = PropTypes.shape({
   id: PropTypes.number.isRequired,
-  __html: PropTypes.shape({
-    html: PropTypes.string,
+  html: PropTypes.shape({
+    __html: PropTypes.string,
   }),
   type: PropTypes.string.isRequired,
   value: PropTypes.string,
@@ -19,7 +19,7 @@ const handleClick = () => {
   $(".Notifications").hide();
 };
 
-function Notifications({ displayDrawer, listNotifications }) {
+function Notifications({ displayDrawer = false, listNotifications = []}) {
   return (
     <>
       <div className="menuItem">
@@ -54,21 +54,15 @@ function Notifications({ displayDrawer, listNotifications }) {
             { listNotifications.length === 0 ? (
               <NotificationItem type="default" value="New course available" />
             ) : (
-                listNotifications.map(({id, __html, type, value}) => (
+                listNotifications.map(({id, html, type, value}) => (
                 <NotificationItem
                   key={id}
                   type={type}
-                  html={__html}
+                  html={html}
                   value={value}
                 />
                 ))
             )}
-
-            {/* <NotificationItem type="urgent" value="New resume available" />
-            <NotificationItem
-              type="urgent"
-              html={{ __html: getLatestNotification() }}
-            /> */}
           </ul>
         </div>
       )}
@@ -81,8 +75,4 @@ Notifications.propTypes = {
   listNotifications: PropTypes.arrayOf(NotificationItemShape),
 };
 
-Notifications.defaultProps = {
-  displayDrawer: false,
-  listNotifications: [],
-};
 export default Notifications;

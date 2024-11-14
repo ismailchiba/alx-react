@@ -17,16 +17,16 @@ const listCourses = [
 const listNotifications = [
   { id: 1, type: "default", value: "New course available" },
   { id: 2, type: "urgent", value: "New resume available" },
-  { id: 3, type: "urgent", html: getLatestNotification() },
+  { id: 3, type: "urgent", html: {__html: getLatestNotification()} },
 ];
 
-function App({isLoggedIn}) {
+function App({ isLoggedIn = false }) {
   return (
     <React.Fragment>
-    <Notifications listNotifications={listNotifications} />
+      <Notifications listNotifications={listNotifications} />
       <Header />
       <div className="App-body">
-      { isLoggedIn ? <CourseList listCourses={listCourses}/> : <Login /> }
+        {isLoggedIn ? <CourseList listCourses={listCourses} /> : <Login />}
       </div>
       <Footer />
     </React.Fragment>
@@ -34,11 +34,7 @@ function App({isLoggedIn}) {
 }
 
 App.propTypes = {
-  isLoggedIn: PropTypes.bool
-};
-
-App.defaultProps = {
-  isLoggedIn: false,
+  isLoggedIn: PropTypes.bool,
 };
 
 export default App;

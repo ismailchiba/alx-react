@@ -9,7 +9,7 @@ const CourseShape = PropTypes.shape({
   credit: PropTypes.number.isRequired,
 });
 
-function CourseList({ listCourses }) {
+function CourseList({ listCourses = []}) {
   return (
     <>
       <table id="CourseList">
@@ -43,8 +43,5 @@ CourseList.propTypes = {
   listCourses: PropTypes.arrayOf(CourseShape),
 };
 
-CourseList.defaultProps = {
-  listCourses: [],
-};
 
 export default CourseList;

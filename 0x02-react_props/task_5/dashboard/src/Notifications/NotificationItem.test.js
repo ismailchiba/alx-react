@@ -13,7 +13,7 @@ describe("NotificationItem testing component", () => {
         expect(wrapper.find('li').prop('data-notification-type')).toEqual("default");
     });
     it ("renders with correct html", () => {
-        const wrapper = shallow(<NotificationItem html={'<u>test</u>'} />);
+        const wrapper = shallow(<NotificationItem html={{ __html: "<u>test</u>" }} />);
         expect(wrapper.find('li').html()).toContain('<u>test</u>');
     });
 });

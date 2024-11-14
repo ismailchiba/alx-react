@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 function NotificationItem({type ="default" , html, value}) {
       return (
          <li data-notification-type = {type} 
-         {...(html ? { dangerouslySetInnerHTML: {__html: html }} : {})}
+            dangerouslySetInnerHTML = {html}
          >
          {value}
          </li>
@@ -13,8 +13,8 @@ function NotificationItem({type ="default" , html, value}) {
 
 NotificationItem.propTypes = {
       type: PropTypes.string,
-      __html: PropTypes.shape({
-         html: PropTypes.string
+      html: PropTypes.shape({
+         __html: PropTypes.string
       }),
       value: PropTypes.string
 };
