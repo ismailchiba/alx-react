@@ -1,0 +1,26 @@
+.Notifications {
+    border: 2px dotted red;
+    padding: 1rem;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+    margin: 0 2rem;
+    width: 50%;
+}
+.Notifications p {
+    font-size: 1.5rem;
+}
+.menuItem {
+    text-align: right;
+    font-weight: bold;
+    position: relative;
+    margin: 0 2rem;
+    
+}
+
+li[data-notification-type="urgent"] {
+    color: red;
+}
+li[data-notification-type="default"] {
+    color: blue;
+}

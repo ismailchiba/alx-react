@@ -1,51 +1,35 @@
-import React from 'react';
-import App from './App';
-import { shallow } from 'enzyme';
-import Notifications from '../Notifications/Notifications';
-import Header from '../Header/Header';
-import Login from '../Login/Login';
-import Footer from '../Footer/Footer';
-import CourseList from '../CourseList/CourseList';
+import React from "react";
+import App from "./App";
+import { shallow } from "enzyme";
 
-describe('App', () => {
-  it('renders without crashing', () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper.exists());
+describe("App Componeent Tests", () => {
+  it("Renders without crashing", () => {
+    const app = shallow(<App />);
+    expect(app).toBeDefined();
   });
-  it('Notifications component', () => {
-    const wrapper = shallow(<Notifications />);
-    expect(wrapper.exists());
-  });
-  it('Header component', () => {
-    const wrapper = shallow(<Header />);
-    expect(wrapper.exists());
-  });
-  it('Login component', () => {
-    const wrapper = shallow(<Login />);
-    expect(wrapper.exists());
-  });
-  it('Footer component', () => {
-    const wrapper = shallow(<Footer />);
-    expect(wrapper.exists());
-  });
-});
+  it("renders a div Header", () => {
+    const app = shallow(<App />);
 
-describe('App', () => {
-  it('CourseList is not displayed', () => {
-    const wrapper = shallow(<App />);
-    const courseList = wrapper.find(CourseList)
-    expect(courseList.length).toEqual(0);
+    expect(app.find("Header").exists()).toBeTruthy();
   });
-});
+  it("renders a div Login", () => {
+    const app = shallow(<App isLoggedIn = {false} />);
 
-const wrapper = shallow(<App isLoggedIn={true}/>);
-describe('App', () => {
-  it('CourseList is not displayed', () => {
-    const courseList = wrapper.find(Login)
-    expect(courseList.length).toEqual(0);
+    expect(app.find("Login").exists()).toBeTruthy();
   });
-  it('CourseList is not displayed', () => {
-    const courseList = wrapper.find(CourseList)
-    expect(courseList.length).toEqual(1);
+  it ("renders a div CourseList", () => {
+    const app = shallow(<App isLoggedIn = {true} />);
+    expect(app.find("Login").exists()).toBeFalsy();
+    expect(app.find("CourseList").exists()).toBeTruthy();
+  });
+  it("renders a div Footer", () => {
+    const app = shallow(<App />);
+
+    expect(app.find("Footer").exists()).toBeTruthy();
+  });
+  it("renders a div Notifications", () => {
+    const app = shallow(<App />);
+
+    expect(app.find("Notifications").exists()).toBeTruthy();
   });
 });

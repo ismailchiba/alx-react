@@ -1,0 +1,18 @@
+.App-header{
+    display: flex;
+    border-bottom: 4px solid #e0354b;
+    gap: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .App-header h1{
+    color: #e0354b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  }
+  .App-logo{
+    width: 200px;
+    height: 200px;
+    background-size: 200px 200px;
+  }
