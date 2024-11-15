@@ -2,34 +2,30 @@ import React from "react";
 import App from "./App";
 import { shallow } from "enzyme";
 
-describe("", () => {
+describe("App Component", () => {
   it("Renders without crashing", () => {
     const app = shallow(<App />);
-    expect(app).toBeDefined();
+    expect(app.exists()).toBe(true);
   });
-  it("renders a div Header", () => {
+  it("renders a Header component", () => {
     const app = shallow(<App />);
-
     expect(app.find("Header").exists()).toBeTruthy();
   });
-  it("renders a div Login", () => {
-    const app = shallow(<App isLoggedIn = {false} />);
-
+  it("renders a Login component when not logged in", () => {
+    const app = shallow(<App isLoggedIn={false} />);
     expect(app.find("Login").exists()).toBeTruthy();
   });
-  it ("renders a div CourseList", () => {
-    const app = shallow(<App isLoggedIn = {true} />);
+  it("renders a CourseList component when logged in", () => {
+    const app = shallow(<App isLoggedIn={true} />);
     expect(app.find("Login").exists()).toBeFalsy();
     expect(app.find("CourseList").exists()).toBeTruthy();
   });
-  it("renders a div Footer", () => {
+  it("renders a Footer component", () => {
     const app = shallow(<App />);
-
     expect(app.find("Footer").exists()).toBeTruthy();
   });
-  it("renders a div Notifications", () => {
+  it("renders a Notifications component", () => {
     const app = shallow(<App />);
-
     expect(app.find("Notifications").exists()).toBeTruthy();
   });
 });
