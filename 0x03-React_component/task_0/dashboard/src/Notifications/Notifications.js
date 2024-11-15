@@ -1,17 +1,31 @@
 import React from "react";
+import $ from "jquery";
 import "./Notifications.css";
 import closeIcon from "../assets/close-icon.png";
 import NotificationItem from "./NotificationItem";
 import PropTypes from "prop-types";
-import NotificationItemShape from "./NotificationItemShape";
 
-function Notifications({ displayDrawer, listNotifications }) {
+const NotificationItemShape = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  html: PropTypes.shape({
+    __html: PropTypes.string,
+  }),
+  type: PropTypes.string.isRequired,
+  value: PropTypes.string,
+});
+
+const handleClick = () => {
+  console.log("Close button has been clicked");
+  $(".Notifications").hide();
+};
+
+function Notifications({ displayDrawer = false, listNotifications = []}) {
   return (
     <>
       <div className="menuItem">
         <p>Your notifications</p>
       </div>
-      {displayDrawer ? (
+      {displayDrawer && (
         <div className="Notifications">
           <button
             style={{
@@ -21,27 +35,37 @@ function Notifications({ displayDrawer, listNotifications }) {
               border: "none",
               fontSize: "15px",
               position: "absolute",
-              right: "3px",
-              top: "3px",
+              right: "1px",
+              top: "1px",
               cursor: "pointer",
-              outline: "none",
             }}
             aria-label="Close"
-            onClick={(e) => {
-              console.log("Close button has been clicked");
-            }}
+            onClick={handleClick}
           >
-            <img src={closeIcon} alt="close icon" width="10px" />
+            <img
+              src={closeIcon}
+              alt="close-button"
+              width="30px"
+              style={{ position: "relative", margin: "10px" }}
+            />
           </button>
-          {listNotifications.length != 0 ? <p>Here is the list of notifications</p> : null}
+          <p id="notification-title">Here is the list of notifications</p>
           <ul>
-            {listNotifications.length == 0 ? <NotificationItem type="default" value="No new notification for now" /> : null}
-            {listNotifications.map((val, idx) => {
-              return <NotificationItem type={val.type} value={val.value} html={val.html} key={val.id} />;
-            })}
+            { listNotifications.length === 0 ? (
+              <NotificationItem type="default" value="New course available" />
+            ) : (
+                listNotifications.map(({id, html, type, value}) => (
+                <NotificationItem
+                  key={id}
+                  type={type}
+                  html={html}
+                  value={value}
+                />
+                ))
+            )}
           </ul>
         </div>
-      ) : null}
+      )}
     </>
   );
 }
@@ -49,11 +73,6 @@ function Notifications({ displayDrawer, listNotifications }) {
 Notifications.propTypes = {
   displayDrawer: PropTypes.bool,
   listNotifications: PropTypes.arrayOf(NotificationItemShape),
-};
-
-Notifications.defaultProps = {
-  displayDrawer: false,
-  listNotifications: [],
 };
 
 export default Notifications;
